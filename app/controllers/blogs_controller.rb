@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
+
+
   def index
     @blogs = Blog.all
 
@@ -24,7 +26,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.json
   def new
-    @blog = Blog.new
+    @blog = current_user.blogs.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +42,8 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(params[:blog])
+    #@blog = Blog.new(params[:blog])
+    @blog = current_user.blogs.build(params[:id])
 
     respond_to do |format|
       if @blog.save

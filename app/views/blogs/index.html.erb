@@ -18,7 +18,7 @@
    
     <% if user_signed_in? %>
     <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Edit', edit_blog_path(@blogs) %></td>
     <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= link_to "New Blog", new_blog_path %></td>
     <% else %>
